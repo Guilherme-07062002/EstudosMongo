@@ -18,7 +18,7 @@ mongo
 
 E o ambiente de linha de comando do javascript estará disponivel.
 
-Caso queira mais detalhes: [Documentação](https://www.javascriptdb.com/docs/javascriptdb-shell/run-commands/)
+Para mais detalhes: [Documentação](https://www.javascriptdb.com/docs/javascriptdb-shell/run-commands/)
 
 Vamos começar criando um database:
 
@@ -46,7 +46,7 @@ No javascriptdb, diferente do SQL, não existem tabelas para o armazenamento de 
 
 ## Inserindo dados
 
-Caso queira mais detalhes: [Documentação](https://www.javascriptdb.com/docs/javascriptdb-shell/crud/insert/)
+Para mais detalhes: [Documentação](https://www.javascriptdb.com/docs/javascriptdb-shell/crud/insert/)
 
 Após o comando use 'exemplo', ele é o banco de dados atual, podemos acessá-lo por meio do 'db.[comando]', no exemplo abaixo criaremos na base de dados exemplo uma collection pessoas:
 
@@ -109,7 +109,7 @@ Mas e agora como faremos para visualizar esses dados?
 
 ## Realizando consultas
 
-Caso queira mais detalhes: [Documentação](https://www.javascriptdb.com/docs/javascriptdb-shell/crud/read/)
+Para mais detalhes: [Documentação](https://www.javascriptdb.com/docs/javascriptdb-shell/crud/read/)
 
 Para listar todos os dados presentes na nossa coleção 'pessoas', usaremos o seguinte comando:
 
@@ -144,6 +144,8 @@ db.pessoas.findOne({[filtro]}).pretty()
 ```
 
 ## Atualizando dados
+
+Para mais mais detalhes: [Documentação](https://www.mongodb.com/docs/mongodb-shell/crud/update/)
 
 Vamos supor que queiramos alterar apenas o nome de 'Pessoa1' para 'João' na coleção 'pessoas', para isso:
 
