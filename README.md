@@ -18,6 +18,8 @@ mongo
 
 E o ambiente de linha de comando do mongo estará disponivel.
 
+Caso queira mais detalhes: [Documentação](https://www.mongodb.com/docs/mongodb-shell/run-commands/)
+
 Vamos começar criando um database:
 
 ```bash
@@ -26,7 +28,13 @@ use exemplo
 
 Este irá dar uma 'switch' para um novo database chamado exemplo.
 
-Para listas as bases de dados disponiveis, digite:
+Para exibir o db atual, execute:
+
+```bash
+db
+```
+
+Para listar as bases de dados disponiveis, digite:
 
 ```bash
 show dbs
@@ -36,7 +44,9 @@ No entanto você irá perceber que o db recém criado 'exemplo', não é exibido
 
 No mongodb, diferente do SQL, não existem tabelas para o armazenamento de dados, existem **collections**.
 
-### Inserindo dados
+## Inserindo dados
+
+Caso queira mais detalhes: [Documentação](https://www.mongodb.com/docs/mongodb-shell/crud/insert/)
 
 Após o comando use 'exemplo', ele é o banco de dados atual, podemos acessá-lo por meio do 'db.[comando]', no exemplo abaixo criaremos na base de dados exemplo uma collection pessoas:
 
@@ -57,3 +67,42 @@ Esta será a saída do comando insertOne:
 ![print1](imgs-readme/print1.png)
 
 Podemos ver que ele cria um *ObjectId*, que fazendo uma comparação com SQL seria o identificador do seu documento, então mesmo que dois documentos possuam os mesmos dados ou sejam inseridos ao mesmo tempo eles terão identificadores diferentes.
+
+Se por exemplo quisermos uma outra collections chamada 'carros', precisariamos apenas executar:
+
+```mongo
+db.carros.insertOne({nome: "Ferrari", ano: 2020"})
+```
+
+E conforme vimos anteriormente ele cria uma coleção carros no db atual, que neste caso é exemplo, com os dados passados no parâmetro.
+
+Então agora que inserimos dados ao nosso banco, se executarmos novamente:
+
+```bash
+show dbs
+```
+
+Agora será possivel visualizar o nosso db 'exemplo' criado anteriormente.
+
+## Exibindo collections
+
+Para exibir as collections que estão disponiveis no banco, execute:
+
+```bash
+show collections
+```
+
+Se você tiver executado os comandos apresentados acima neste documento serão exibidas duas coleções: pessoas e carros.
+
+## Inserção de múltiplos dados
+
+Para inserir mais de um document a sua collection é muito parecido com o que é feito com o insertOne, no entanto agora será passado como parâmetro um array de objetos:
+
+```mongo
+db.pessoas.insertMany([
+    {nome: "Pessoa2", idade: 23, email: "pessoa2@email.com"}, 
+    {nome: "Pessoa3", idade: 25, email: "pessoa3@email.com"}
+    ])
+```
+
+Mas e agora como faremos para visualizar esses dados?
