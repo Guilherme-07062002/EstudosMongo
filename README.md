@@ -106,3 +106,39 @@ db.pessoas.insertMany([
 ```
 
 Mas e agora como faremos para visualizar esses dados?
+
+## Realizando consultas
+
+Caso queira mais detalhes: [Documentação](https://www.mongodb.com/docs/mongodb-shell/crud/read/)
+
+Para listar todos os dados presentes na nossa coleção 'pessoas', usaremos o seguinte comando:
+
+```mongo
+db.pessoas.find()
+```
+
+No entanto, com este comando os dados serão exibidos todos um lado do outro, caso você deseje uma visualização mais organizada, teste esse outro comando:
+
+```mongo
+db.pessoas.find().pretty()
+```
+
+No parâmetro da função find especificamos o filtro da consulta que será realizada, se não passarmos nada então todos os dados serão selecionados.
+
+Mas vamos supor que queiramos realizar um consulta buscando apenas as pessoas que possuem um idade superior a 22 anos:
+
+```mongo
+db.pessoas.find({"idade": { $gt: 22 }}).pretty()
+```
+
+Ou buscar os dados da pessoa que possui o nome 'pessoa1':
+
+```mongo
+db.pessoas.find({"nome" : "Pessoa1"}).pretty()
+```
+
+E pra buscarmos apenas um dado na consulta?
+
+```mongo
+db.pessoas.findOne({[filtro]}).pretty()
+```
